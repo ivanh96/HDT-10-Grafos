@@ -1,3 +1,10 @@
+/* 
+Universidad del Valle de Guatemala
+Rodolfo Cacacho 
+Fredy España
+Marlon Hernandez
+*/
+
 import java.io.File;
 
 import org.neo4j.graphdb.GraphDatabaseService;
@@ -395,9 +402,9 @@ public class Main {
 
 
 			 // Se hacen muestran todos los nodos y todas sus relaciones de emails
-             resultado1 = graphDb.execute("MATCH (P1:Persona)-[E:Emails]->(P2:Persona) RETURN P1.Nombre");
-             resultado2 = graphDb.execute("MATCH (P1:Persona)-[E:Emails]->(P2:Persona) RETURN P2.Nombre");
-             resultado3 = graphDb.execute("MATCH (P1:Persona)-[E:Emails]->(P2:Persona) RETURN E.Emails");
+             resultado1 = graphDb.execute("MATCH (P1:Persona)-[E:Mails]->(P2:Persona) RETURN P1.Nombre");
+             resultado2 = graphDb.execute("MATCH (P1:Persona)-[E:Mails]->(P2:Persona) RETURN P2.Nombre");
+             resultado3 = graphDb.execute("MATCH (P1:Persona)-[E:Mails]->(P2:Persona) RETURN E.Emails");
 
              Iterator<String>r1 = resultado1.columnAs("P1.Nombre");
              Iterator<String>r2 = resultado2.columnAs("P2.Nombre");
@@ -425,9 +432,9 @@ public class Main {
              }
 
              // Se muestra las personas con minimo 6 emails
-             resultado4 = graphDb.execute("MATCH (P1:Persona)-[E:Emails]->(P2:Persona) WHERE C.Cantidad > 6 RETURN P1.Nombre");
-             resultado5 = graphDb.execute("MATCH (P1:Persona)-[E:Emails]->(P2:Persona) WHERE C.Cantidad > 6 RETURN P2.Nombre");
-             resultado6 = graphDb.execute("MATCH (P1:Persona)-[E:Emails]->(P2:Persona) WHERE C.Cantidad > 6 RETURN E.Emails");
+             resultado4 = graphDb.execute("MATCH (P1:Persona)-[E:Mails]->(P2:Persona) WHERE C.Cantidad > 6 RETURN P1.Nombre");
+             resultado5 = graphDb.execute("MATCH (P1:Persona)-[E:Mails]->(P2:Persona) WHERE C.Cantidad > 6 RETURN P2.Nombre");
+             resultado6 = graphDb.execute("MATCH (P1:Persona)-[E:Mails]->(P2:Persona) WHERE C.Cantidad > 6 RETURN E.Emails");
             
              Iterator<String>r4=resultado4.columnAs("P1.Nombre");
              Iterator<String>r5=resultado5.columnAs("P2.Nombre");
